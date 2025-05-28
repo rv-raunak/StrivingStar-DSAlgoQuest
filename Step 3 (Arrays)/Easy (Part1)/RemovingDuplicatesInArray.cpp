@@ -18,7 +18,7 @@ int BruteForce_Approach(int arr[], int n)
         index++;
     }
 
-    return index;  //since its alredy (last_element Index + 1)
+    return index;  //since its already (last_element Index + 1)
 
 }
 
