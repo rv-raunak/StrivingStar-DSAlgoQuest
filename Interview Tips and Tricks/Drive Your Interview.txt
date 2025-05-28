@@ -1,0 +1,14 @@
+
+
+---
+
+Striver emphasizes that if you already know the optimal solution to a **hard problem**, you **should not** jump straight to it in an interview. Instead, approach it systematically. Begin by thoroughly understanding the problem—ask the interviewer about constraints, edge cases, and relevant test cases.
+
+Start by presenting the **brute force solution**—the first idea that comes to mind, even if it's inefficient. Then, gradually build on it by suggesting a **better approach**, and finally work your way toward the **most optimal solution**. You can even add an intermediate step—something “better than better”—if it helps demonstrate your thinking more clearly.
+
+However, this layered approach is generally recommended **only for medium to hard problems**. For **easier problems**, it’s better to get straight to the point with the optimal solution, unless specifically asked otherwise.
+
+The key is to showcase your **logical reasoning**, **structured thinking**, and ability to improve solutions step by step. Even if you already know the answer, simulate the thought process—**fake it if you have to**—because interviewers care more about how you think than just the final output.
+
+---
+

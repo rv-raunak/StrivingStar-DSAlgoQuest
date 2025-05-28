@@ -1,0 +1,11 @@
+---
+
+### ✅ Striver's Tip – Clean & Logical Naming
+
+> **"In coding rounds and interviews, always use meaningful and logical names for variables and functions.**
+> Avoid generic names like `x`, `y`, or `temp` unless absolutely necessary. Clear naming shows your ability to write readable, maintainable, and professional code — a quality that stands out to interviewers."
+
+💡 *Good naming reflects clear thinking.*
+It shows you understand the **purpose** behind every part of your code — and that you're not just solving problems, you're building solutions.
+
+---
