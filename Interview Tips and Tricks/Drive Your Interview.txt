@@ -10,5 +10,8 @@ However, this layered approach is generally recommended **only for medium to har
 
 The key is to showcase your **logical reasoning**, **structured thinking**, and ability to improve solutions step by step. Even if you already know the answer, simulate the thought process—**fake it if you have to**—because interviewers care more about how you think than just the final output.
 
+
+In short, your thought process must be visible to the interviewer 
+
 ---
 
