@@ -1,7 +1,7 @@
 /*
 From the above content we already covered Containers and Iterators
 As of now Functions are not important so we can omit learning them
-And thus, we'll be focusing now on the Algorithms(Most Used ones) and if there are algortims that might be left then we can learn them anyways at the moment when they are required while coding  afterwards
+And thus, we'll be focusing now on the Algorithms(Most Used ones) and if there are algortims that might be left then we can learn them anyways at the moment when they are required while coding afterwards
 */
 
 #include<bits/stdc++.h>
@@ -28,7 +28,7 @@ void explainExtra()
 
     //syntax
     //sort(a, a + n)
-        //here a = starting terator i.e. the pointing towards the first/starting position 9(usually)
+        //here a = starting iterator i.e. the pointing towards the first/starting position (usually)
 
         // And (a+n) is the ending iterator i.e. It should be always 1 after the desired element 
 
@@ -63,14 +63,15 @@ void explainExtra()
     int n = sizeof(arr) / sizeof(arr[0]);
     cout<<sizeof(arr)<<endl; //gives the total number of bytes occupied by the whole array
     cout<<sizeof(arr[0])<<endl; //gives the number of bytes occupied by a single element
-    cout<<n<<endl;  //there division gives the number of elements present
+    cout<<n<<endl;  //their division gives the number of elements present
 
     //we took this appraoch to find length of array because .size() only works with containers like vector, string, etc., not with raw arrays
+    // The sizeof() operator (it's actually an operator, not a function) has O(1) time complexity - it's constant time.
 
     // Sort entire array in ascending order
     sort(arr, arr + n);
     cout << "Sorted array (ascending): ";
-    for (int i = 0; i < n; i++) cout << arr[i] << " ";
+    for (int i = 0; i < n; i++) cout << arr[i] << " ";   //it sorts the same array
     cout << endl;
 
     // Example 2: Partial sorting (only index 2 to 3 i.e., a+2 to a+4)
@@ -155,7 +156,7 @@ pair<int,int> a[]={{1,2}, {2,1}, {4,1}};
 //so let's write a self-written comparator which is essentially nothing but a boolean function
  //tips to write a custom comparator
     //->keep the same datatype as mentioned in the container in the parameter
-    //->always take a couple or two guys as parameters and just write the logic for comparing the two elements thus orget about the container and just focus only on those two instances
+    //->always take a couple or two guys as parameters and just write the logic for comparing the two elements thus forget about the container and just focus only on those two instances
     //after this the comparator will extend this logic to every element by taking two guys at a time for all the elements
 
    //Galti-Alert: I did the mistake of defining the comp here which is incorrect since comp is a boolean function and we can't define a function within a function so it has to be declared and defined separately(i.e. above here)
@@ -176,3 +177,50 @@ int main()
      explainExtra();
     return 0;
 }
+
+
+
+// // 
+// What works with sort():
+
+// vector, deque, array (random access iterators)
+// Regular arrays
+
+// What doesn't work with sort():
+
+// map, set, multimap, multiset (already sorted + wrong iterator type)
+// list, forward_list (wrong iterator type, but they have their own .sort() member function)\
+
+//  The sort() function doesn't work on map (or set, multimap, multiset) for two main reasons:
+
+// Maps are already sorted: A map automatically keeps its elements sorted by key, so there's no need to sort it manually.
+// Iterator type incompatibility: sort() requires random access iterators, but map only provides bidirectional iterators. Random access iterators can jump to any position instantly (like it + 5), while bidirectional iterators can only move one step at a time forward or backward.
+
+
+
+
+
+
+
+
+
+//////////////////////////////---------------------------VERY IMP-------------------------------/////////////////////////////////////
+// Time Complexity of sort() function:
+// All three cases have the same TC: O(n log n)
+
+// Ascending sort: sort(a, a+n) → O(n log n)
+// Descending sort: sort(a, a+n, greater<int>()) → O(n log n)
+// Custom sort: sort(a, a+n, comp) → O(n log n)
+
+// Why same complexity for all?
+// The sort() function uses Introsort (Introspective Sort) internally, which is a hybrid algorithm:
+
+// Starts with Quicksort
+// Switches to Heapsort if recursion depth gets too deep
+// Uses Insertion sort for small subarrays
+
+// Key points:
+
+// Comparator doesn't change TC - Whether you use default <, greater<int>(), or custom comp, it's still the same number of comparisons
+// Each comparison is O(1) - The comparator function runs in constant time
+// Total comparisons needed - Still approximately n log n regardless of sorting order

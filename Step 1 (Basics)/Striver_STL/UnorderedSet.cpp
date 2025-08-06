@@ -3,7 +3,7 @@ using namespace std;
 
 void explainUnorderedSet()
 {
-    //everything is same as set  i.e. all the oeprations are same be it insert, erase etc. except lower and upper bound functions do not work
+    //everything is same as set  i.e. all the operations are same be it insert, erase etc. except lower and upper bound functions do not work
 
     //however, the only difference is that it doesn't store in a sorted order
 
@@ -18,7 +18,7 @@ void explainUnorderedSet()
     //as above, it does not store in any particular order so it has a better complexity than set in most cases, except some when collision happens
 
 
-    //in most of the cases the Time Complexity is O(1) constant time but here's a catch in the worst case (which happens once in a millennium) i.e. the data is possibly grouped in such a way that they want us to explore the worst case then the Unordered Set takes O(n) Linear Time Complexity (bu this happens only once in a blue moon)
+    //in most of the cases the Time Complexity is O(1) constant time but here's a catch in the worst case (which happens once in a millennium) i.e. the data is possibly grouped in such a way that they want us to explore the worst case then the Unordered Set takes O(n) Linear Time Complexity (but this happens only once in a blue moon)
 
     //we'll understand these things when we would grow in experience
 }

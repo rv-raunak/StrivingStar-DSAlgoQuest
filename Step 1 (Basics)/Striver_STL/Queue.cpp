@@ -103,7 +103,7 @@ void explainQueue()
     cout<<q.front()<<endl;  //prints 1
     printQueue(q);
 
-    q.pop();  //{2,9}//pops the first element //doesn't return anything 
+    q.pop();  //{2,9}//pops the first element //doesn't return anything
     printQueue(q);
     cout<<q.front()<<endl;   //prints 2
 

@@ -27,7 +27,7 @@ void explainMultiSet()
     ms.insert(1); //{1,1,1,2}
     printMS(ms);
 
-    ms.erase(1); // this erases all the occurences of 1 ance
+    ms.erase(1); // this erases all the occurences of 1 once
     printMS(ms);
 
 
@@ -63,7 +63,7 @@ void explainMultiSet()
     //way 2
     auto it = ms.find(1);
     advance(it, 2); // /* Now the iterator is one position ahead of where you want it to be. This is because in the erase() function it takes from the start till one element less than the end that we specified.*/
-    ms.erase(ms.find(1), it); // Now we have the iterator in the correct place so it will erase properly and we will be left with only one 1.
+    ms.erase(ms.find(1), it); // Now we have the iterator in the correct place so it will erase properly and we will be left with only 2.
     cout<<"Erased Set: ";
     printMS(ms);
     //thus we can do erasing of selective elelemnts we can follow either of the ways

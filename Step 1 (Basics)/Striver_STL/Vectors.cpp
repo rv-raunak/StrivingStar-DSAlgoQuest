@@ -11,7 +11,7 @@
 | `v.clear()`                        | ✅ O(n)                  | Destroys all elements                                |
 | `v.size()`                         | ✅ O(1)                  | Returns current size                                 |
 | `v.capacity()`                     | ✅ O(1)                  | Shows allocated space (may be more than size)        |
-| `v.reserve(n)`                     | ✅ O(n)                  | Preallocates memory to avoid frequent resizing       |
+| `v.reserve(n)`                     | ✅ O(n)                  | Pre-allocates memory to avoid frequent resizing       |
 | `v.resize(n)`                      | ✅ O(n)                  | Adjusts size; may construct/destroy elements         |
 | `v.shrink_to_fit()`                | ❌ O(n) (not guaranteed) | Reduces capacity to match size (optional)            |
 | `std::find(v.begin(), v.end(), x)` | ❌ O(n)                  | Linear search for element                            |
@@ -73,8 +73,8 @@ void explainVector()
     //this is just the initial size we can increase it using push_back
     print_vector(v2);
 
-    vector<int>v3(5); //this declares and creates a container of inital size 5 and all the values maybe 0 or garbage value (depending on the compiler)
-    //this is just the initial size we can increase it using push_back
+    vector<int>v3(5); //this declares and creates a container of inital size 5 and all the values maybe 0 or garbage value (depending on the compiler) //edit-> containers like vectors are always initialized with 0 (anywhere)..Read More in Initialization Rules at the end
+    //this is just the initial size we can increase it using push_back 
     print_vector(v3);
 
 
@@ -87,7 +87,7 @@ void explainVector()
     cout<<v[0]<<" "<<v.at(1)<<endl;   
     //at is generally not used it works same as accessing index
     cout<<v.back()<<" "<<endl; //access the last element
-
+    cout<<v.front()<<" "<<endl; //access the last element
 
 
 
@@ -251,4 +251,70 @@ int main()
     return 0; 
 }
 
+/*
+=================================================================
+              C++ vs JAVA INITIALIZATION RULES
+=================================================================
 
+C++ RULES:
+----------
+• GLOBAL/STATIC variables: Always initialized to 0/null
+• LOCAL variables: Uninitialized (garbage values) - DANGEROUS!
+
+1. PRIMITIVES (int, float, char):
+   - Global/Static: Always 0
+   - Local: GARBAGE VALUE (must initialize manually)
+
+2. RAW ARRAYS:
+   - Global/Static: All elements = 0
+   - Local: All elements = GARBAGE (must initialize manually)
+
+3. STL CONTAINERS (vector, list, etc.):
+   - Global/Static/Local: ALWAYS properly initialized
+   - vector<int> v(5) = {0,0,0,0,0} everywhere
+
+4. POINTERS:
+   - Global/Static: Always nullptr (0)
+   - Local: GARBAGE VALUE (very dangerous!)
+
+5. CLASS OBJECTS:
+   - Global/Static: Members = 0 (zero-initialized)
+   - Local: Members = GARBAGE (unless constructor initializes)
+
+JAVA RULES:
+-----------
+• INSTANCE/STATIC variables: Always initialized to defaults
+• LOCAL variables: MUST be explicitly initialized (compile error otherwise)
+
+1. INSTANCE VARIABLES (class members):
+   - int = 0, boolean = false, Object = null
+   - ALWAYS automatically initialized
+
+2. STATIC VARIABLES (class variables):
+   - Same as instance variables
+   - ALWAYS automatically initialized
+
+3. LOCAL VARIABLES (method variables):
+   - MUST be explicitly initialized before use
+   - Compiler ERROR if used without initialization
+
+4. ARRAY ELEMENTS:
+   - Instance/Static arrays: Elements = default values (0, false, null)
+   - Local arrays: Elements = default values (but array ref must be initialized)
+
+MEMORY RULE:
+------------
+C++: Location matters (Global=safe, Local=unsafe)
+Java: Scope matters (Instance/Static=safe, Local=must init)
+
+CONTAINERS ARE ALWAYS SAFE:
+---------------------------
+• std::vector, std::list (C++)
+• ArrayList, LinkedList (Java)
+• These ALWAYS initialize properly regardless of location
+
+DANGER ZONES:
+-------------
+C++: Local primitives, local arrays, local pointers
+Java: Local variables (but compiler catches this)
+*/

@@ -8,7 +8,7 @@ using namespace std;
 //In set, everything happens in logrithmic time complexity i.e. log(N) (Examples: Insertion and Deletion)
 
 
-    //for stroing in the sorted fashion it maintains a tree (so its not a linear data structure) (We'll learn about the tree later)
+    //for storing in the sorted fashion it maintains a tree (so its not a linear data structure) (We'll learn about the tree later)
 void printset(set<int> x)
 {
     for(set<int>::iterator it=x.begin(); it!=x.end(); it++)
@@ -69,7 +69,7 @@ void explainSet()
 
     //we can also erase using the iterator
     auto it2= st.find(4);
-    st.erase(it); //it takes constant time
+    st.erase(it2); //it takes constant time
     printset(st);
 
 

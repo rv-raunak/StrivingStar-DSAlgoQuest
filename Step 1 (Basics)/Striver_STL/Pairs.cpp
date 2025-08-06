@@ -25,6 +25,10 @@ void ExplainPair()
     cout<<arr[1].second<<endl; 
     //this proves that pairs can also be treated as a datatype in C++
 
+    pair<string, string> p3 ={"Vaibhav","RV Raunak"};
+    cout<<p3.first<<" "<<p3.second[0];
+    //testing pair on strings
+
 }
 
 int main()

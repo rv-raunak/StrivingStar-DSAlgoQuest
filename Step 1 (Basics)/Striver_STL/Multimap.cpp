@@ -1,14 +1,14 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-explainMultimap()
+void explainMultimap()
 {
     //similar to map, the only difference is that you can store duplicate keys here 
     //Example : {{1,2},{1,3}}  //this is valid now
     //Just as set and multiset
     
     //everything same as map, only it can store multiple keys
-    //onlu mpp[key] cannot be used here
+    //only mpp[key] cannot be used here
 
     //duplicate keys but still everything in the sorted order
 

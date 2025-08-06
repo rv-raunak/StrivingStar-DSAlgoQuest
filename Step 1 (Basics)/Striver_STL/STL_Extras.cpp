@@ -17,6 +17,8 @@ void explainExtras()
 
    int cnt = __builtin_popcount(7); //so it basically gives the count of set bits or 1s in Binary form of the digits
    cout<<"No. of Set Bits: "<<cnt<<endl;  
+//Important: This is a GCC/Clang builtin. For other compilers, you might need to use std::popcount() (C++20) or implement manually, but the hardware-supported versions are always O(1).
+// So yes, it's constant time regardless of the input value!
 
 
    //for long long the syntax changes a bit
@@ -35,13 +37,13 @@ void explainExtras()
 
 void printPermutations(string s)
 {
-    //------------Next Thing: Finding Permuation possibilities
-    //suppose for this string "123", I want to have all the permutation cases then I would make use of the nexy_permutation(start, end+1) function 
+    //------------Next Thing: Finding Permutation possibilities
+    //suppose for this string "123", I want to have all the permutation cases then I would make use of the next_permutation(start, end+1) function 
     
     do{
         cout<<s<<endl;
     }while(next_permutation(s.begin(), s.end()));  
-    //s.end() already points at one element after the last element so its alreay (End position + 1)
+    //s.end() already points at one element after the last element so its already (End position + 1)
 
     //remember that this prints all the permutations of string as per dictionary order
 
@@ -56,7 +58,7 @@ void printPermutations(string s)
 void explainNextPermutation()
 {
 
-    //Remember: Since it prints in the dictionary order i.e. ascending so we have to give the string in sorted order already in order to find all the permutations, otherwise it will miss many permuatation before it.
+    //Remember: Since it prints in the dictionary order i.e. ascending so we have to give the string in sorted order already in order to find all the permutations, otherwise it will miss many permutation before it.
 
     //Before using nxt_permutation function, we must first sort the string before passing it as the parameter of the next_permutation function
     cout<<"Case: 1 (Already Sorted Case)"<<endl;
@@ -79,6 +81,28 @@ void explainNextPermutation()
     cout<<"Unsorted Instance: "<<s1<<endl;
     printPermutations(s1);
     cout<<endl;
+
+    /*
+TIME COMPLEXITY OF next_permutation(): O(n! × n)
+
+SINGLE CALL: O(n)
+- Has to scan and rearrange parts of the string/array
+- Each call does O(n) work to find the next permutation
+
+GENERATING ALL PERMUTATIONS: O(n! × n)
+- Total permutations = n! 
+- Each permutation takes O(n) time to compute
+- Total = n! × O(n) = O(n! × n)
+
+EXAMPLE: string "abc" (n=3)
+- 3! = 6 permutations exist
+- Each next_permutation() takes O(3) time  
+- Total time = 6 × O(3) = O(3! × 3)
+
+KEY POINT: 
+n! = how many permutations exist (math)
+O(n! × n) = time to actually generate them all (programming)
+*/
 }
 
 
@@ -99,6 +123,76 @@ void MinMax()
     //same goes for min element;  //everything is same as above
     int mini = *min_element(arr,arr+6);
     cout<<mini<<endl; 
+
+    /*
+TIME COMPLEXITY: O(n)
+
+max_element(arr, arr+6):     O(6) = O(n)
+max_element(arr, arr+4):     O(4) = O(n) 
+min_element(arr, arr+6):     O(6) = O(n)
+
+WHY O(n)?
+- Both functions must scan through ALL elements in the given range
+- They compare each element to find the maximum/minimum
+- No way to avoid checking every element (unsorted array)
+- Linear scan from start to end iterator
+
+EXAMPLE:
+arr[] = {1, 10, 5, 6, 9, 34}
+max_element(arr, arr+6) checks: 1→10→5→6→9→34 (6 comparisons)
+max_element(arr, arr+4) checks: 1→10→5→6 (4 comparisons)
+
+SPACE COMPLEXITY: O(1) - only stores the current max/min value
+*/
+
+
+
+/*
+max() vs max_element() - WHEN TO USE WHICH:
+
+max() FUNCTION:
+- Purpose: Compare 2 values OR small known lists
+- Returns: The actual VALUE
+- Time Complexity: O(1) for 2 values, O(n) for initializer list
+
+max_element() FUNCTION:
+- Purpose: Find max in arrays/containers using iterators
+- Returns: ITERATOR (address) - use * to get value
+- Time Complexity: O(n)
+
+INITIALIZER LIST: {1,2,3,4} - Direct list of values in curly braces
+
+EXAMPLES:
+
+// max() with 2 values - O(1)
+int a = 5, b = 10;
+int result = max(a, b);                    // Returns 10
+
+// max() with initializer list - O(n) 
+int result = max({1, 5, 3, 9, 2});         // Returns 9 (checks all 5 values)
+int result = max({height, width, depth});   // Returns largest of 3 values
+
+// max() in conditions - O(1)
+if(max(x, y) > 100) { ... }
+
+// max_element() with arrays - O(n)
+int arr[] = {1, 5, 3, 9, 2};
+int maxVal = *max_element(arr, arr+5);     // Returns 9
+
+// max_element() with vectors - O(n)
+vector<int> v = {1, 5, 3, 9, 2};
+int maxVal = *max_element(v.begin(), v.end());  // Returns 9
+
+// max_element() partial range - O(3)
+int maxInSlice = *max_element(arr+1, arr+4);    // Checks {5,3,9}, returns 9
+
+WHEN TO USE WHICH:
+✓ max(): 2 values or small fixed lists you type directly
+✓ max_element(): Arrays, vectors, any container with iterators
+
+Same logic applies to min() vs min_element()
+*/
+
 
 
 }

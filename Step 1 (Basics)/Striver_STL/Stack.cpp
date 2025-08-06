@@ -103,6 +103,7 @@ void explainStack()
 
     deque<int> dq = {1, 2, 3};
     stack<int, deque<int>> st2(dq);
+    printStack(st2);
     //if I didn't do this then I would have to enter or push the elements manually all by myself
 
 

@@ -46,6 +46,7 @@ void explainList()
     cout<<endl<<dq.back()<<endl;  //access the last element (takes no argument)
     cout<<dq.front()<<endl;
     //access the first element (takes no argument)
+    cout<<dq[0]<<endl;
 }
 int main()
 {

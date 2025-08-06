@@ -99,17 +99,17 @@ void explainMap()
 
     mpp3[{2,3}] = 10;
     cout<<mpp3[{2,3}]<<" "<<mpp3.at({2,3})<<endl; //ways of accessing values using key
+    // printMap(mpp3);    //its not valid for this as the datatype of the key has changed 
 
-
-    //another way of iterating using aut and for each loop (here 'it' is actually a pair not an iterator)
+    //another way of iterating using auto and for each loop (here 'it' is actually a pair not an iterator)
     for(auto it: mpp)
     {
-        cout<< it.first << " " << it.second << endl;  //travesing in sorted order of key manner
+        cout<<"Key-Value Pair: " << it.first << " " << it.second << endl;  //travesing in sorted order of key manner
     }
 
 
     //accessing values
-    cout<< mpp[2]<<'\n';  //it gives the vale at key '2' i.e. 4 here
+    cout<< mpp[2]<<'\n';  //it gives the value at key '2' i.e. 4 here
     cout<< mpp[5]<<'\n'; //since key is not present so it returns null(however it prints it as 0) as no value would be there
 
 

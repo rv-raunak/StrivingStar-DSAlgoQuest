@@ -87,7 +87,9 @@ void explainList()
     //begin, end, rbegin, rend, clear, insert, size, swap
     
     print(ls);
-
+    
+    // cout<<ls[0]<<endl;
+    // can't access by index as it is not continuous memory allocation 
 }
 
 
