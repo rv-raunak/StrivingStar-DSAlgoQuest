@@ -35,7 +35,7 @@ int main()
                                         //     cout<<'('<<(char)hash[i]<<' '<<i<<')'<<' ';
                                         // }
     //this code of mine is actually my first attempt to make a hash for the characters but it only assignes the alphabets to their corresponding indexes but doesn't store the frequency and doesn't even provide a mechanism to store the frequency of elements
-    // by hashing we simply want to achieve that the element of the main array must be same as the index of hash arry and at that index its frequency should be stored as accessiong thorugh index only takes constant time which improves the time complexity by a lot.
+    // by hashing we simply want to achieve that the element of the main array must be same as the index of hash array and at that index its frequency should be stored as accessiong thorugh index only takes constant time which improves the time complexity by a lot.
 
     int q;
     cout<<"Enter The Number Of Times You Wanna Query The Array: ";
