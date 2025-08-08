@@ -30,7 +30,7 @@ int BruteForce_Approach(int arr[], int n)
 
 int Better_Approach(int arr[], int n)
 {
-    //here we'll have two passes, in pass we would check for the largest element and in the second pass we''' check for the second largest element(by filtering out the largest element which is not equal to the actuall largest that is actually found)
+    //here we'll have two passes, in pass we would check for the largest element and in the second pass we'll check for the second largest element(by filtering out the largest element which is not equal to the actuall largest that is actually found)
 
     //first pass: finding the largest element
     int max = arr[0];                           //assumption
@@ -40,7 +40,7 @@ int Better_Approach(int arr[], int n)
     }
 
     //second pass: finding the second largest element (not equal to max)
-    int secmax = -1;    //can take INT_MIN if -ve elemeents are also ignored
+    int secmax = -1;    //can take INT_MIN if -ve elements are also included
     for(int i = 0; i<n;i++)
     {
         if(arr[i]>secmax && arr[i]!=max)     //can also be (arr[i]>secmax && arr[i]<max)
@@ -72,7 +72,7 @@ int Better_Approach(int arr[], int n)
             max=arr[i];
         }
 
-        if(arr[i]<max && arr[i]>secmax)  //don't think that arr[i]<max is redundant like the first one, its actually imp to filter out equal to cases and duplicates of max would always be gretaer than secmax so must filter out them too thus this condition is both a general and important firebal
+        if(arr[i]<max && arr[i]>secmax)  //don't think that arr[i]<max is redundant like the first one, its actually imp to filter out equal to cases and duplicates of max would always be gretaer than secmax so must filter out them too thus this condition is both a general and important firewall
         {
             secmax=arr[i];
         }
@@ -110,7 +110,7 @@ int main()
     if (secmax == INT_MIN)
         cout << "No second largest element exists (all elements are same).\n";
     else
-        cout << "Second largest element by brute-force approach: " << secmax << endl;
+        cout << "Second largest element by Brute-force approach: " << secmax << endl;
 
 
 

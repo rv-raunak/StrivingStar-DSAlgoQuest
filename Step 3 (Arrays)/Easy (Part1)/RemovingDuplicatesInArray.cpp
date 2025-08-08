@@ -46,7 +46,7 @@ int main()
     int arr2[]={1,1,2,2,3,3,3};
     //I made two exact copies since both the approach modify the same array
 
-    //new way of finding the number of elements in an array
+    //new way of finding the number of elements in an array  //correction: this is the only way to find the length in C++ XD
     int n =  sizeof(arr1)/sizeof(arr1[0]);
     cout<<"Size of Array: "<<sizeof(arr1)<<" Bytes"<<endl;
     cout<<"Size of one element: "<<sizeof(arr1[0])<<" Bytes"<<endl;

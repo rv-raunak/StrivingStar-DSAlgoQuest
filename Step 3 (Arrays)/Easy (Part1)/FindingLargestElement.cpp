@@ -3,7 +3,7 @@ using namespace std;
 
 int Brute_Force(int arr[], int n)
 {
-    sort(arr, arr+n);
+    sort(arr, arr+n);   //you can't directly write sort(arr, n); as I tried this but it is predefined signature for this func
     return arr[n-1];
 
     //TC: O(nlog(n)) (because sort() function internally takes this time to sort)
