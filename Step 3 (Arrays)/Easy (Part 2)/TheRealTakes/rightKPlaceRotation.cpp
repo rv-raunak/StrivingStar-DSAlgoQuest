@@ -36,6 +36,26 @@ void rotateRight(vector<int>& nums, int k) {
         }
     }
 
+    void rotateRightOptimal(vector<int>& nums, int k)
+    {
+        int n = nums.size();
+        k = k % n;
+
+
+        auto i = nums.begin();
+        auto j = nums.end();
+
+        reverse(i, i+(n-k));
+        reverse(i+(n-k), j);
+        reverse(i,j);
+
+        //I got to know that reverse func also works on the [start, stop) principle //I guess it worked the same in array but I missed it
+        //I learned to declare iterators as variables to use them anywhere
+        
+       
+    }
+
+
     int main()
     {
         int n; 
@@ -55,7 +75,8 @@ void rotateRight(vector<int>& nums, int k) {
         cout<<"Enter the number of rotations: ";
         cin>>k;
 
-        rotateRight(arr, k);
+        // rotateRight(arr, k);
+        rotateRightOptimal(arr, k);
         for(auto i: arr){cout<<i<<" ";}
 
         return 0;
